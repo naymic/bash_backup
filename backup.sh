@@ -14,7 +14,7 @@ BACKUP_FILE=${BACKUP_ROOT}${USER}_${COMPUTER}_${DATE}_${TIMESTAMP}.tar.gz
 
 
 #Save and compress files
-#tar cf - ${FILES_ROOT} -P | pv -s $(du -sb ${FILES_ROOT} | awk '{print $1}') | gzip > ${BACKUP_FILE}
+tar cf - ${FILES_ROOT} -P | pv -s $(du -sb ${FILES_ROOT} | awk '{print $1}') | gzip > ${BACKUP_FILE}
 
 #Clean up backups older than 7884000 s (3 months)
 FILES=($(find $BACKUP_ROOT -name "*.tar.gz"))
